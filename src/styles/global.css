@@ -1,0 +1,28 @@
+.header {
+  background-color: #1B2A3D;
+}
+
+.core_values_grid.section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 3rem 2rem;
+  justify-items: center;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .core_values_grid.section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .core_values_grid.section {
+    grid-template-columns: 1fr;
+  }
+}
+
+.newsletter_card.section {
+  background-color: #FFFDF7;
+}
