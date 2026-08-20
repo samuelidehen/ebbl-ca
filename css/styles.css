@@ -221,7 +221,7 @@ img {
   display: none;
 }
 
-.site-header__nav-item:hover .site-header__dropdown,
+.site-header__nav-item.is-open .site-header__dropdown,
 .site-header__nav-item:focus-within .site-header__dropdown {
   display: block;
 }

@@ -13,6 +13,20 @@
   window.addEventListener("scroll", onScroll, { passive: true });
 })();
 
+// Desktop nav dropdowns — JS-driven (not pure CSS :hover) so each
+// dropdown's open state is explicit and only ever applies to the item
+// actually being interacted with.
+(function navDropdowns() {
+  const items = document.querySelectorAll(".site-header__nav-item");
+
+  items.forEach((item) => {
+    if (!item.querySelector(".site-header__dropdown")) return;
+
+    item.addEventListener("mouseenter", () => item.classList.add("is-open"));
+    item.addEventListener("mouseleave", () => item.classList.remove("is-open"));
+  });
+})();
+
 // Mobile menu toggle
 (function mobileMenu() {
   const toggle = document.querySelector(".site-header__menu-toggle");
