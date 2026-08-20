@@ -751,3 +751,135 @@ img {
     grid-template-columns: 1fr;
   }
 }
+
+/* ---------- Inner pages (no hero photo behind the fixed header) ---------- */
+body.page--inner .site-header {
+  background: var(--color-white);
+  border-bottom-color: var(--color-border);
+}
+
+body.page--inner .site-header__wordmark {
+  color: var(--color-ink);
+}
+
+body.page--inner .site-header__subtitle {
+  color: var(--color-burgundy);
+}
+
+body.page--inner .site-header__nav-item > a {
+  color: var(--color-ink);
+}
+
+body.page--inner .site-header__menu-toggle span {
+  background: var(--color-ink);
+}
+
+.page-header {
+  padding: calc(6.5rem + var(--space-section)) 0 var(--space-section);
+  background: var(--color-parchment);
+  text-align: center;
+}
+
+.page-header .eyebrow {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.page-header h1 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  max-width: 40rem;
+  margin-inline: auto;
+}
+
+.page-header p.page-header__lede {
+  max-width: 40rem;
+  margin: 1.25rem auto 0;
+  color: var(--color-text-muted);
+}
+
+.page-content {
+  padding: var(--space-section) 0;
+}
+
+.page-content .container {
+  max-width: 44rem;
+}
+
+.page-content h2 {
+  font-size: 1.4rem;
+  margin-top: 2.75rem;
+  margin-bottom: 1rem;
+}
+
+.page-content h2:first-child {
+  margin-top: 0;
+}
+
+.page-content p {
+  margin-bottom: 1.25rem;
+  color: var(--color-text);
+}
+
+.page-content ul.page-list {
+  margin: 0 0 1.25rem;
+  padding-left: 1.25rem;
+  color: var(--color-text);
+}
+
+.page-content ul.page-list li {
+  margin-bottom: 0.5rem;
+  line-height: 1.65;
+}
+
+.page-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-burgundy);
+  text-decoration: none;
+}
+
+.page-placeholder-note {
+  margin: 2rem 0;
+  padding: 1rem 1.25rem;
+  background: var(--color-parchment);
+  border-left: 3px solid var(--color-burgundy);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Contact form (reuses newsletter field/button styles) ---------- */
+.contact-form {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 32rem;
+}
+
+.contact-form textarea {
+  padding: 0.85rem 1rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  resize: vertical;
+}
+
+.contact-form textarea:focus-visible {
+  outline: 2px solid var(--color-burgundy);
+  outline-offset: 1px;
+}
+
+.contact-form__success {
+  margin-top: 1.5rem;
+}
+
+.contact-form.is-hidden {
+  display: none;
+}
