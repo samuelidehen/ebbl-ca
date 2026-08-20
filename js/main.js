@@ -13,17 +13,33 @@
   window.addEventListener("scroll", onScroll, { passive: true });
 })();
 
-// Desktop nav dropdowns — JS-driven (not pure CSS :hover) so each
-// dropdown's open state is explicit and only ever applies to the item
-// actually being interacted with.
+// Desktop nav dropdowns — JS-driven (not pure CSS :hover), and
+// defensively enforced so at most one is ever open at a time even if a
+// mouseleave gets missed (e.g. fast pointer movement, OS-level screen
+// capture interactions).
 (function navDropdowns() {
-  const items = document.querySelectorAll(".site-header__nav-item");
+  const itemsWithDropdowns = Array.from(
+    document.querySelectorAll(".site-header__nav-item")
+  ).filter((item) => item.querySelector(".site-header__dropdown"));
 
-  items.forEach((item) => {
-    if (!item.querySelector(".site-header__dropdown")) return;
+  function closeAll(except) {
+    itemsWithDropdowns.forEach((item) => {
+      if (item !== except) item.classList.remove("is-open");
+    });
+  }
 
-    item.addEventListener("mouseenter", () => item.classList.add("is-open"));
+  itemsWithDropdowns.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      closeAll(item);
+      item.classList.add("is-open");
+    });
     item.addEventListener("mouseleave", () => item.classList.remove("is-open"));
+  });
+
+  document.addEventListener("mouseleave", () => closeAll(null));
+  window.addEventListener("blur", () => closeAll(null));
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) closeAll(null);
   });
 })();
 
