@@ -371,6 +371,15 @@ img {
   gap: 1.75rem;
 }
 
+.hero__title {
+  margin: 0 0 0.75rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+}
+
 .hero__times p {
   font-family: var(--font-serif);
   color: var(--color-white);
@@ -679,6 +688,12 @@ img {
   max-width: 22rem;
   font-size: 0.9rem;
   line-height: 1.6;
+}
+
+.site-footer__contact-intro {
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .site-footer__social {
